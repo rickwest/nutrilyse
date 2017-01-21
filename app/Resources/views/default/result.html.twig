@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Results | Nutrilyse{% endblock %}
+
+{% block body %}
+    <img src="/assets/img/nutrilyse-logo.png" class="nutrilyse-logo">
+    <h1>{{ ingredient }}</h1>
+    <p>Great news! Your ingredient has been <strong>nutrilysed</strong> and contains the following nutritional profile.</p>
+    <table class="table table-striped table-bordered">
+        <thead>
+        </thead>
+        <tbody>
+            {% if analysis.calories is defined %}
+            <tr>
+                <td><strong>Calories</strong></td>
+                <td><strong>{{ analysis.calories }}kcal</strong></td>
+            </tr>
+            {% endif %}
+
+            {% if analysis.totalWeight is defined %}<tr>
+                <td>Weight</td>
+                <td>{{ analysis.totalWeight | number_format(2) }}g</td>
+            </tr>
+            {% endif %}
+
+            {% if analysis.totalNutrients.CHOCDF is defined %}
+            <tr>
+                <td>{{ analysis.totalNutrients.CHOCDF.label }}</td>
+                <td>{{ analysis.totalNutrients.CHOCDF.quantity | number_format(2) }}{{ analysis.totalNutrients.CHOCDF.unit }}</td>
+            </tr>
+            {% endif %}
+
+            {% if analysis.totalNutrients.SUGAR is defined %}
+            <tr>
+                <td>{{ analysis.totalNutrients.SUGAR.label }}</td>
+                <td>{{ analysis.totalNutrients.SUGAR.quantity | number_format(2) }}{{ analysis.totalNutrients.SUGAR.unit }}</td>
+            </tr>
+            {% endif %}
+
+            {% if analysis.totalNutrients.FAT is defined %}
+            <tr>
+                <td>{{ analysis.totalNutrients.FAT.label }}</td>
+                <td>{{ analysis.totalNutrients.FAT.quantity | number_format(2) }}{{ analysis.totalNutrients.FAT.unit }}</td>
+            </tr>{% endif %}
+
+            {% if analysis.totalNutrients.FASAT is defined %}
+            <tr>
+                <td>Saturated Fat</td>
+                <td>{{ analysis.totalNutrients.FASAT.quantity | number_format(2) }}{{ analysis.totalNutrients.FASAT.unit }}</td>
+            </tr>
+            {% endif %}
+
+            {% if analysis.totalNutrients.FATRN is defined %}
+            <tr>
+                <td>Trans Fat</td>
+                <td>{{ analysis.totalNutrients.FATRN.quantity | number_format(2) }}{{ analysis.totalNutrients.FATRN.unit }}</td>
+            </tr>
+            {% endif %}
+            {% if analysis.totalNutrients.FAMS is defined %}
+            <tr>
+                <td>Monounsaturated Fat</td>
+                <td>{{ analysis.totalNutrients.FAMS.quantity | number_format(2) }}{{ analysis.totalNutrients.FAMS.unit }}</td>
+            </tr>
+            {% endif %}
+
+            {% if analysis.totalNutrients.FAPU is defined %}
+            <tr>
+                <td>Polyunsaturated Fat</td>
+                <td>{{ analysis.totalNutrients.FAPU.quantity | number_format(2) }}{{ analysis.totalNutrients.FAPU.unit }}</td>
+            </tr>
+            {% endif %}
+
+            {% if analysis.totalNutrients.PROCNT is defined %}
+            <tr>
+                <td>{{ analysis.totalNutrients.PROCNT.label }}</td>
+                <td>{{ analysis.totalNutrients.PROCNT.quantity | number_format(2) }}{{ analysis.totalNutrients.PROCNT.unit }}</td>
+            </tr>
+            {% endif %}
+
+            {% if analysis.totalNutrients.FIBTG is defined %}
+            <tr>
+                <td>{{ analysis.totalNutrients.FIBTG.label }}</td>
+                <td>{{ analysis.totalNutrients.FIBTG.quantity | number_format(2) }}{{ analysis.totalNutrients.FIBTG.unit }}</td>
+            </tr>
+            {% endif %}
+
+            {% if analysis.totalNutrients.CHOLE is defined %}
+            <tr>
+                <td>{{ analysis.totalNutrients.CHOLE.label }}</td>
+                <td>{{ analysis.totalNutrients.CHOLE.quantity | number_format(2) }}{{ analysis.totalNutrients.CHOLE.unit }}</td>
+            </tr>
+            {% endif %}
+
+            {% if analysis.totalNutrients.NA is defined %}
+            <tr>
+                <td>{{ analysis.totalNutrients.NA.label }}</td>
+                <td>{{ analysis.totalNutrients.NA.quantity | number_format(2) }}{{ analysis.totalNutrients.NA.unit }}</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <img src="/assets/img/attibution1.png" class="attribution">
+{% endblock %}

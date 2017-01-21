@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ingredient Analysis | Nutrilyse{% endblock %}
+
+{% block body %}
+    {% form_theme ingredientAnalysisForm 'bootstrap_3_layout.html.twig' %}
+    {{ form_start(ingredientAnalysisForm) }}
+    <img src="/assets/img/nutrilyse-logo.png" class="nutrilyse-logo">
+    <div class="form-group has-feedback">
+        {{ form_widget(ingredientAnalysisForm.ingredient) }}
+       <span class="glyphicon glyphicon-info-sign form-control-feedback"></span>
+        {{ form_errors(ingredientAnalysisForm.ingredient) }}
+    </div>
+    <div class="homepage-btn-group">
+    {{ form_row(ingredientAnalysisForm.submit) }}
+    </div>
+    {{ form_end(ingredientAnalysisForm) }}
+{% endblock %}
